@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import AppRoutes from './routes/';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import { bgColors } from './components/GlobalStyledVars';
+
+
+const RootStyled = styled.div`
+  background-color: ${bgColors.normal};
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RootStyled>
+      <Helmet
+        title={'Gardeofy - Garden Planting Agency'}
+          meta={[
+              {name: 'author', content: 'mahabubdev'},
+              {name: 'author-url', content: 'https://github.com/mahabubdev/'},
+              {name: 'description', content: 'Gardeofy is a agency company for garden planting services.'},
+              {name: 'project-type', content: 'Portfolio purpose website only'}
+            ]}
+            />
+      <AppRoutes />
+    </RootStyled>
   );
 }
 

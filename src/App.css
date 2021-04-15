@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.xx {
+  color: #459a61;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +40,33 @@
     transform: rotate(360deg);
   }
 }
+
+ */
+
+*, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: #4ca455;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  transition: all .25s ease-in;
+  -webkit-transition: all .25s ease-in;
+  -moz-transition: all .25s ease-in;
+  -ms-transition: all .25s ease-in;
+  -o-transition: all .25s ease-in;
+}
+
+/* .xx {
+  color: rgb(69, 154, 97);
+} */
