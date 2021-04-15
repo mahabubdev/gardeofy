@@ -22,10 +22,30 @@ export const FooterWrapper = styled.footer`
 
 export const FooterContainer = styled.footer`
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 80%;
     max-width: 1500px;
     margin: 0 auto;
+    flex-direction: row;
+    gap: 0;
+
+    p {
+        display: inline-flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media only screen and (max-width: 1099.9px) {
+        flex-direction: column;
+        gap: 5em 0;
+    }
+
+    @media only screen and (max-width: 767.9px) {
+        width: 96%;
+        padding: .25em;
+    }
 `;
 
 
@@ -122,6 +142,9 @@ export const FooterCol = styled.div`
 
     &:last-child {
         max-width: 25%;
+        @media only screen and (max-width: 991.9px) {
+            max-width: inherit;
+        }
     } 
 
     ul {

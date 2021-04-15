@@ -18,9 +18,13 @@ export const HeaderContainer = styled.div`
     gap: 0;
     width: 80%;
     margin: 0 auto;
-    padding: 0;
     max-width: 1500px;
     padding: 1em 0;
+
+    @media only screen and (max-width: 767.9px) {
+        width: 96%;
+        padding: .25em;
+    }
 `;
 
 export const HeaderTopbar = styled.div`
@@ -39,6 +43,10 @@ export const HeaderTopbar = styled.div`
         gap: 0 .25em;
         font-size: .85em;
         cursor: pointer;
+    }
+
+    @media only screen and (max-width: 767.9px) {
+        display: none;
     }
 `;
 
@@ -60,6 +68,10 @@ export const LogoArea = styled.div`
         .dot {
             color: ${textColors.theme};
             font-size: 1.25em;
+        }
+
+        @media only screen and (max-width: 767.9px) {
+            font-size: 1.5em;
         }
     }
 `;
@@ -112,5 +124,42 @@ export const MenuArea = styled.div`
                 color: ${textColors.light};
             };
         };
+    }
+
+    .menu_switch {
+        display: none;
+        font-size: 1.75em;
+        padding: .5rem 1rem;
+    }
+
+
+    @media only screen and (max-width: 1099.9px) {
+        .btns_menu, .menus {
+            display: none;
+        }
+
+        .menu_switch {
+            display: block;
+        }
+    }
+
+
+    &.mobile_menu {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background-color: red;
+        color: white;
+        z-index: 9;
+
+        .btns_menu, .menus {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
     }
 `;

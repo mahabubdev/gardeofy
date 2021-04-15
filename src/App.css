@@ -67,6 +67,10 @@ a {
   -o-transition: all .25s ease-in;
 }
 
+ul, li {
+  list-style: none;
+}
+
 /* .xx {
-  color: rgb(69, 154, 97);
+  color:rgb(12, 41, 26);
 } */

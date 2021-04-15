@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import {Header, HeaderContainer, HeaderTopbar, LogoArea, MenuArea } from './Styled';
 import { IoPhonePortraitOutline, IoMailOutline, IoLocationOutline } from "react-icons/io5";
+import { CgMenu, CgClose } from "react-icons/cg";
+import { useState } from 'react';
 
 
 const HeaderArea = () => {
+
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const togMenu = () => setToggleMenu(! toggleMenu);
+
+    // return
     return (
         <Header>
             <HeaderTopbar>
@@ -29,7 +36,11 @@ const HeaderArea = () => {
                     </Link>
                 </LogoArea>
 
-                <MenuArea>
+                <MenuArea className={toggleMenu ? 'mobile_menu' : ''}>
+                    <span className="menu_switch" onClick={togMenu}>
+                        { toggleMenu ? <CgClose /> : <CgMenu /> }
+                    </span>
+
                     <ul className="menus">
                         <li>
                             <Link to='/'>home</Link>

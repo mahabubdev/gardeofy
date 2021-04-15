@@ -1,6 +1,6 @@
 import { FooterWrapper, FooterContainer, FooterContentWrap, FooterCol, NewsLetter } from './styled';
 import { Link } from 'react-router-dom';
-import { IoCheckmarkCircleOutline, IoCloseCircleOutline } from 'react-icons/io5';
+import { IoCheckmarkCircleOutline, IoCloseCircleOutline, IoPhonePortraitOutline, IoMailOutline, IoLocationOutline } from 'react-icons/io5';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaHackerrank } from 'react-icons/fa';
 import { HiOutlineChevronRight } from "react-icons/hi";
 
@@ -10,11 +10,7 @@ const FooterArea = () => {
     return (
         <FooterWrapper>
             <FooterContentWrap style={{backgroundImage: `url("${footerBgImg}")`}}>
-                <FooterContainer style={{
-                    flexDirection: 'row', 
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-start',
-                }}>
+                <FooterContainer>
                     <div className="footer_brand">
                         <div>
                             <span className="logo">grandeofy<span className="dot">.</span></span>
@@ -49,33 +45,29 @@ const FooterArea = () => {
                     </div>
 
                     <FooterCol>
-                        <h3>opening hours</h3>
+                        <h3>find us</h3>
                         <ul>
                             <li>
-                                <span><IoCheckmarkCircleOutline /></span>
-                                <span>Mon - Tue: 10:00 - 18:00</span>
+                                <span><IoLocationOutline /></span>
+                                <span>Grandeofy LC.</span>
                             </li>
                             <li>
-                                <span><IoCheckmarkCircleOutline /></span>
-                                <span>Wed – Thur: 10.00 – 17.00</span>
+                                <span><IoLocationOutline /></span>
+                                <span>956 Wellington Street, <br/> Toronto, Canada</span>
                             </li>
                             <li>
-                                <span><IoCheckmarkCircleOutline /></span>
-                                <span>Fri – Sat: 10.00 – 14.00</span>
+                                <span><IoPhonePortraitOutline /></span>
+                                <span>+880 9696 209784</span>
                             </li>
                             <li>
-                                <span><IoCheckmarkCircleOutline /></span>
-                                <span>Saturday: 10.00 – 12.00</span>
-                            </li>
-                            <li>
-                                <span><IoCloseCircleOutline /></span>
-                                <span>Sunday: Closed</span>
+                                <span><IoMailOutline /></span>
+                                <span>info@grandeofy.com</span>
                             </li>
                         </ul>
                     </FooterCol>
 
                     <FooterCol>
-                        <h3>latest projects</h3>
+                        <h3>opening hours</h3>
                         <ul>
                             <li>
                                 <span><IoCheckmarkCircleOutline /></span>

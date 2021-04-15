@@ -1,9 +1,10 @@
 import DefaultLayout from '../layouts/Default';
+import HomeBannerSection from '../components/Sections/HomeBanner';
 
 const HomePage = () => {
     return (
         <DefaultLayout>
-            <h2>Home Page</h2>
+            <HomeBannerSection />
         </DefaultLayout>
     )
 }
