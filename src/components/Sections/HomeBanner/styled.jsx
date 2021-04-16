@@ -81,6 +81,12 @@ export const BannerContentWrap = styled.section`
             }
         }
     }
+
+
+    @media only screen and (max-width: 767.9px) {
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 
