@@ -23,7 +23,7 @@ const ServiceSection = () => {
                 <ServiceCard>
                     <span><GiThreeLeaves /></span>
                     <div className="service_info">
-                        <h4>design & planting</h4>
+                        <h4>soil preparation</h4>
                         <p>
                             Duis eleifend molestie leo, at mollis eros rutrum. Duis eleifend molestie leo, at mollis eros rutrum.
                         </p>
@@ -34,7 +34,7 @@ const ServiceSection = () => {
                 <ServiceCard>
                     <span><GiThreeLeaves /></span>
                     <div className="service_info">
-                        <h4>design & planting</h4>
+                        <h4>watering & irrigation</h4>
                         <p>
                             Duis eleifend molestie leo, at mollis eros rutrum. Duis eleifend molestie leo, at mollis eros rutrum.
                         </p>
@@ -44,7 +44,7 @@ const ServiceSection = () => {
                 <ServiceCard>
                     <span><GiThreeLeaves /></span>
                     <div className="service_info">
-                        <h4>design & planting</h4>
+                        <h4>lawn & garden care</h4>
                         <p>
                             Duis eleifend molestie leo, at mollis eros rutrum. Duis eleifend molestie leo, at mollis eros rutrum.
                         </p>
@@ -54,7 +54,7 @@ const ServiceSection = () => {
                 <ServiceCard>
                     <span><GiThreeLeaves /></span>
                     <div className="service_info">
-                        <h4>design & planting</h4>
+                        <h4>stone & hard scaping</h4>
                         <p>
                             Duis eleifend molestie leo, at mollis eros rutrum. Duis eleifend molestie leo, at mollis eros rutrum.
                         </p>
@@ -65,7 +65,7 @@ const ServiceSection = () => {
                 <ServiceCard>
                     <span><GiThreeLeaves /></span>
                     <div className="service_info">
-                        <h4>design & planting</h4>
+                        <h4>spring & fall cleanup</h4>
                         <p>
                             Duis eleifend molestie leo, at mollis eros rutrum. Duis eleifend molestie leo, at mollis eros rutrum.
                         </p>

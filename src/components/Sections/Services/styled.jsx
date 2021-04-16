@@ -52,6 +52,12 @@ export const ServiceContainer = styled.div`
 
     @media only screen and (max-width: 767.9px) {
         padding: 2.75em 2em;
+        h2{
+            font-size: 2em;
+        }
+        small {
+            font-size: 1.25em;
+        }
     }
 `;
 
@@ -113,7 +119,7 @@ export const ServiceCard = styled.div`
         left: -50px;
         width: 100px;
         height: 100px;
-        background-color: ${bgColors.themeHigh};
+        background: linear-gradient(180deg, ${bgColors.theme}, ${bgColors.themeHigh});
         z-index: -1;
         clip-path: circle(50%);
         transition: all .2s ease-in;
