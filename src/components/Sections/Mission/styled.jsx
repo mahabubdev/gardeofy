@@ -7,7 +7,7 @@ export const MissionSectionWrap = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 0;
+    padding: 150px 0;
 `;
 
 const MissionContainer = styled.div`
