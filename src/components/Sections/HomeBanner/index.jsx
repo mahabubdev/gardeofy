@@ -9,7 +9,7 @@ const HomeBannerSection = () => {
     return (
         <BannerSectionWrap style={{
             backgroundImage: `url("${bannerImg}")`,
-        }}>
+        }} id='home'>
             <NormalContainer>
                 <BannerContentWrap>
                     <div className="banner_texts">

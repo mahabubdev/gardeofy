@@ -5,7 +5,7 @@ import { NormalContainer } from '../../GlobalStyled';
 
 export const ServiceSectionWrap = styled.section`
     display: block;
-    padding: 150px 0;
+    padding: 0 0;
 `;
 
 

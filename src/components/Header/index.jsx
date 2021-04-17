@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
 import {Header, HeaderContainer, HeaderTopbar, LogoArea, MenuArea } from './Styled';
 import { IoPhonePortraitOutline, IoMailOutline, IoLocationOutline } from "react-icons/io5";
-import { CgMenu, CgClose } from "react-icons/cg";
+import { CgMenu } from "react-icons/cg";
 import { useState } from 'react';
+import { Link as Lnk } from 'react-scroll';
+import MobileMenu from './MobileMenu';
 
 
 const HeaderArea = () => {
+    
 
     const [toggleMenu, setToggleMenu] = useState(false);
     const togMenu = () => setToggleMenu(! toggleMenu);
+
 
     // return
     return (
@@ -36,32 +40,44 @@ const HeaderArea = () => {
                     </Link>
                 </LogoArea>
 
-                <MenuArea className={toggleMenu ? 'mobile_menu' : ''}>
-                    <span className="menu_switch" onClick={togMenu}>
-                        { toggleMenu ? <CgClose /> : <CgMenu /> }
-                    </span>
+                <span className="menu_switch" onClick={togMenu}>
+                    <CgMenu />
+                </span>
 
+                {
+                    toggleMenu ? (
+                        <MobileMenu
+                            closer={togMenu}
+                            status={toggleMenu}
+                        />
+                    ) : (
+                <MenuArea>
                     <ul className="menus">
                         <li>
                             <Link to='/'>home</Link>
                         </li>
                         <li>
-                            <Link to='/services'>services</Link>
+                            <Lnk spy={true} to='services'>services</Lnk>
                         </li>
                         <li>
-                            <Link to='/projects'>projects</Link>
+                            <Lnk spy={true} to='testimonials'>testimonials</Lnk>
+                        </li>
+                        <li>
+                            <Lnk spy={true} to='contact'>contact</Lnk>
                         </li>
                     </ul>
 
                     <ul className="btns_menu">
                         <li>
-                            <Link to='/contact'>get a quote</Link>
+                            <Link to='#contact'>get a quote</Link>
                         </li>
                         <li>
                             <Link to='/login' className="marked">sign in</Link>
                         </li>
                     </ul>
                 </MenuArea>
+                    )
+                }
             </HeaderContainer>
         </Header>
     )

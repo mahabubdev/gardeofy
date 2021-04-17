@@ -6,7 +6,7 @@ import { RiCustomerService2Line } from 'react-icons/ri';
 
 const ContactFormSection = () => {
     return (
-        <ContactFormSectionWrap>
+        <ContactFormSectionWrap id='contact'>
             <ContactFormSectionContainer>
                 <small>contact us</small>
                 <h2>Why Most of The People Choose Us</h2>

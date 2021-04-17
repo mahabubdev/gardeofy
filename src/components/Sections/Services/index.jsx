@@ -1,10 +1,11 @@
-import { ServiceSectionContainer, ServiceCardsWrap, ServiceCard } from './styled';
+import { ServiceSectionContainer, ServiceCardsWrap, ServiceSectionWrap, ServiceCard } from './styled';
 import { GiThreeLeaves } from 'react-icons/gi';
 
 
 const ServiceSection = () => {
     return (
-        <ServiceSectionContainer>
+        <ServiceSectionWrap id='services'>
+            <ServiceSectionContainer>
             <small>our services</small>
             <h2>What kind of services we are offering</h2>
 
@@ -74,6 +75,7 @@ const ServiceSection = () => {
 
             </ServiceCardsWrap>
         </ServiceSectionContainer>
+        </ServiceSectionWrap>
     )
 }
 

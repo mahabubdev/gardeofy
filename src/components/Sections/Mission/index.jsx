@@ -6,7 +6,7 @@ import { IoPlayOutline } from 'react-icons/io5';
 
 function MissionSection() {
     return (
-        <MissionSectionWrap>
+        <MissionSectionWrap id='mission'>
             <MissionSectionContainer>
                 <MissionInfo>
                     <small>welcome to gardeofy</small>

@@ -59,7 +59,7 @@ const TeamSection = () => {
     ];
 
     return (
-        <TeamSectionWrap>
+        <TeamSectionWrap id='teams'>
             <TeamSectionContainer>
                 <small>team members</small>
                 <h2>Our trained staff</h2>
