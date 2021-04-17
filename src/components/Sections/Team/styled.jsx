@@ -103,6 +103,8 @@ export const TeamItem = styled.div`
     z-index: 1;
     cursor: pointer;
     transition: all .2s ease;
+    border-radius: .35em;
+    overflow: hidden;
 
     div {
         display: flex;

@@ -66,8 +66,6 @@ const TeamSection = () => {
 
                 <Carousel 
                     breakPoints={breakPoints}
-                    autoPlaySpeed={2500}
-                    enableAutoPlay={true}
                     itemsToScroll={1}
                 >
                     {
