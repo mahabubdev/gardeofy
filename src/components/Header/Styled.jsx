@@ -112,12 +112,13 @@ export const MenuArea = styled.div`
         list-style: none;
         gap: 0 .1em;
 
-        a {
+        a, span {
             text-decoration: none;
             text-transform: uppercase;
             font-size: 1em;
             color: ${textColors.normal};
             padding: .85em 1.5em;
+            cursor: pointer;
         }
     }
 
@@ -125,7 +126,7 @@ export const MenuArea = styled.div`
 
         gap: 0 1.5em;
 
-        a {
+        a, span {
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -148,6 +149,13 @@ export const MenuArea = styled.div`
                 color: ${textColors.light};
             };
         };
+
+        li img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            border: .2em solid ${bgColors.themeRGBA(.25)};
+        }
     }
 
 
@@ -260,6 +268,8 @@ export const MobileMenuWrapper = styled.div`
                 text-align: center;
                 text-transform: uppercase;
             }
+
+            
         }
     }
 `;

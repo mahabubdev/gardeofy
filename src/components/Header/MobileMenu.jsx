@@ -2,8 +2,12 @@ import { MobileMenuWrapper } from "./Styled";
 import { CgClose } from "react-icons/cg";
 import { Link as Lnk } from 'react-scroll';
 import { Link } from 'react-router-dom';
+import { useAuthHook } from "../../context/auth";
 
 const MobileMenu = ({ closer, status }) => {
+
+    const { isAuthenticated } = useAuthHook();
+
     return (
         <MobileMenuWrapper
             className={status ? 'active' : ''}
@@ -33,9 +37,21 @@ const MobileMenu = ({ closer, status }) => {
                             {/* <Link to='#contact'>get a quote</Link> */}
                             <Lnk spy={true} to='contact'>get a quote</Lnk>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to='/login' className="marked">sign in</Link>
-                        </li>
+                        </li> */}
+
+                        {
+                            isAuthenticated ? (
+                                <li>
+                                    <span className="marked">logout</span>
+                                </li>
+                            ) : (
+                                <li>
+                                    <Link to='/login' className="marked">sign in</Link>
+                                </li>
+                            )
+                        }
                     </ul>
                 </div>
         </MobileMenuWrapper>

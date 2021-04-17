@@ -1,12 +1,13 @@
 import { Route, Redirect } from 'react-router-dom';
+import { useAuthHook } from '../../context/auth';
 
 export function AuthRequireRoute ({ location, ...rest }) {
-    let status = false;
+    let { user } = useAuthHook();
 
     return (
         <>
             {
-                status ? (<Route {...rest} />) : (
+                user.isAuthenticated ? (<Route {...rest} />) : (
                     <Redirect
                         to={{
                             pathname: '/login',

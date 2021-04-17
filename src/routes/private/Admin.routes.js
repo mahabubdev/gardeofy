@@ -1,12 +1,13 @@
 import { Route, Redirect } from 'react-router-dom';
+import { useAuthHook } from '../../context/auth';
 
 export function AdminRoleRoutes ({ location, ...rest }) {
-    let user = {isAuthenticated: false, role: 'customer'};
+    let { user } = useAuthHook();
 
     return (
         <>
             {
-                user.isAuthenticated && (user.role === 'admin' || user.role === 'super-admin')
+                user.isAuthenticated && (user.role === 'admin' || user.role === 'super_admin')
                     ? (<Route {...rest} />) : (
                     <Redirect
                         to={{

@@ -13,6 +13,9 @@ const bgColorThemeDeep = '#0c291a';
 const bgColorThemeRGBA = (alpha) => {
     return `rgba(69, 154, 97, ${parseFloat(alpha)})`
 };
+const bgColorThemeHighRGBA = (alpha) => {
+    return `rgba(76, 164, 85, ${parseFloat(alpha)})`
+};
 const bgColorThemeRgbaDeep = (alpha) => {
     return `rgba(12, 41, 26, ${parseFloat(alpha)});`
 };
@@ -36,5 +39,10 @@ export const bgColors = {
     themeHigh: bgColorThemeHighlight,
     themeDeep: bgColorThemeDeep,
     themeRGBA: bgColorThemeRGBA,
+    themeHighRGBA: bgColorThemeHighRGBA,
     themeRgbaDeep: bgColorThemeRgbaDeep,
+    extra1: '#EFF4FD',
+    extra2: '#2874F0',
+    extra1RGBA: (alpha) => `rgba(239, 244, 253, ${parseFloat(alpha)})`,
+    extra2RGBA: (alpha) => `rgba(40, 116, 240, ${parseFloat(alpha)})`,
 };
