@@ -1,57 +1,28 @@
 import { TestimonialCard, TestimonialSectionContainer, TestimonialWrap } from "./styled";
 import Carousel from 'react-elastic-carousel';
 import { FaQuoteLeft } from 'react-icons/fa';
-
-
-// fake data clients
-import c1 from '../../../images/clients/client-1.png';
-import c2 from '../../../images/clients/client-2.png';
-import c3 from '../../../images/clients/client-3.png';
-import c4 from '../../../images/clients/client-4.png';
-
-
-
-const reviews = [
-    {
-        id: 'x8923vhkasd',
-        feedback: 'The owners of a corporation have limited liability and the business has a separate legal personality from its owners. Corporations can be either government-owned or privately owned.',
-        client: {
-            name: 'Mike Jones',
-            profession: 'Manager',
-            photo: c1,
-        },
-    },
-    {
-        id: 'x3kjahi8asfk0',
-        feedback: 'The owners of a corporation have limited liability and the business has a separate legal personality from its owners. Corporations can be either government-owned or privately owned.',
-        client: {
-            name: 'Mike Carson',
-            profession: 'Founder',
-            photo: c2,
-        },
-    },
-    {
-        id: 'x82dhijy678w',
-        feedback: 'The owners of a corporation have limited liability and the business has a separate legal personality from its owners. Corporations can be either government-owned or privately owned.',
-        client: {
-            name: 'Jane Smith',
-            profession: 'Sn. Doctor',
-            photo: c3,
-        },
-    },
-    {
-        id: 'x3j86jagdi3d',
-        feedback: 'The owners of a corporation have limited liability and the business has a separate legal personality from its owners. Corporations can be either government-owned or privately owned.',
-        client: {
-            name: 'Sarah Smith',
-            profession: 'Sn. Engineer',
-            photo: c4,
-        },
-    },
-];
-
+import { useState, useEffect } from 'react';
+import { API_SERVER } from '../../../config';
 
 const TestimonialSection = () => {
+
+    const [reviews, setReviews] = useState();
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        if (! loaded) {
+            fetch(API_SERVER + '/api/review')
+            .then(res => res.json())
+            .then(res => {
+                setReviews(res);
+                console.log("reviews===>", res)
+                setLoaded(true);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }, [loaded]);
 
     const breakPoints = [
         {width: 1, itemsToShow: 1},
@@ -64,34 +35,40 @@ const TestimonialSection = () => {
                 <small>few testimonials</small>
                 <h2>Whats clients saying</h2>
 
-                <Carousel 
+                {
+                    loaded ? 
+                    (<Carousel 
                     breakPoints={breakPoints}
                     itemsToScroll={1}
-                >
+                    >
                     {
                         reviews.map(rv => (
-                            <div key={rv.id}>
+                            <div key={rv.uid}>
                                 <TestimonialCard>
                                     <div className="top_part">
                                         <span className="qicon">
                                             <FaQuoteLeft />
                                         </span>
-                                        <p>{rv.feedback}</p>
+                                        <p>{rv.description}</p>
                                     </div>
                                     <div className="bottom_part">
                                         <div className="img">
-                                            <img src={rv.client.photo} alt="client" />
+                                            <img src={rv.user.photo} alt="client" />
                                         </div>
                                         <div className="client">
-                                            <h4>{rv.client.name}</h4>
-                                            <small>{rv.client.profession}</small>
+                                            <h4>{rv.user.name}</h4>
+                                            <small>{rv.user.role}</small>
                                         </div>
                                     </div>
                                 </TestimonialCard>
                             </div>
                         ))
                     }
-                </Carousel>
+                </Carousel>) : (
+                        <p>No feedbacks yet</p>
+                    )
+                }
+
             </TestimonialSectionContainer>
         </TestimonialWrap>
     )

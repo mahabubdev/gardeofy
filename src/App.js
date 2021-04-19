@@ -5,6 +5,7 @@ import AppRoutes from './routes/';
 import styled from 'styled-components';
 import { bgColors } from './components/GlobalStyledVars';
 import { AuthContextProvider } from './context/auth';
+import "react-modal-video/scss/modal-video.scss";
 
 
 const RootStyled = styled.div`

@@ -6,6 +6,8 @@ import { FaGoogle } from 'react-icons/fa';
 import { FormArea } from './styled';
 import classNames from 'classnames';
 import { useAuthHook } from '../../context/auth';
+import { API_SERVER } from '../../config';
+import swal from 'sweetalert';
 
 const RegisterFormArea = () => {
     // route handle
@@ -24,23 +26,62 @@ const RegisterFormArea = () => {
     
     const onFormSubmiting = async (data) => {
         await emailPasswordRegister(data)
-        .then(data => {
-            if (data.error) {
+        .then(async (res) => {
+            if (res.error) {
                 // errors
-                setOtherErr(data.error.message)
+                setOtherErr(res.error.message)
             }
             else {
+                console.log(res);
                 // no error
-                // context loginUser
-                loginUser({
-                    name: data.displayName || '',
-                    email: data.email,
-                    photo: data.photoURL
-                });
-                history.replace(from);
+                let postObj = {
+                    name: res.user.displayName || data.name,
+                    email: res.user.email,
+                    photo: res.user.photoURL === null ? 'user.png' : res.user.photoURL,
+                };
+                console.log(postObj);
+
+                await fetch( API_SERVER + '/api/auth/register', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(postObj),
+                })
+                .then(response => response.json())
+                .then(result => {
+                    swal({
+                        title: result.message,
+                        text: JSON.stringify(result),
+                        icon: 'success'
+                    });
+                    loginUser({
+                        name: result.data.name,
+                        email: result.data.email,
+                        photo: result.data.photo,
+                        role: result.data.role
+                    });
+                    localStorage.setItem('token', result.access_token);
+                    history.replace(from);
+                })
+                .catch(err => {
+                    swal({
+                        title: err.message,
+                        text: JSON.stringify(err),
+                        icon: 'error'
+                    });
+                    console.log(err);
+                    setOtherErr(err.message);
+                })
             }
         })
         .catch(err => {
+            swal({
+                title: err.message,
+                text: JSON.stringify(err),
+                icon: 'error'
+            });
             console.log(err);
             setOtherErr(err.message);
         })
@@ -57,16 +98,63 @@ const RegisterFormArea = () => {
     // Google Login
     const loginWithGoogle = () => {
         googleLogin()
-        .then(data => {
-            // context login 
-            loginUser({
-                name: data.displayName,
-                email: data.email,
-                photo: data.photoURL,
-            })
-            history.replace(from);
+        .then(async (res) => {
+            if (res.error) {
+                // errors
+                setOtherErr(res.error.message)
+            }
+            else {
+                // no error
+                console.log(res);
+                let postObj = {
+                    name: res.displayName,
+                    email: res.email,
+                    photo: res.photoURL === null ? 'user.png' : res.photoURL,
+                };
+                console.log(postObj);
+
+
+                await fetch(API_SERVER + '/api/auth/register', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(postObj),
+                })
+                .then(response => response.json())
+                .then(result => {
+                    swal({
+                        title: result.message,
+                        text: JSON.stringify(result),
+                        icon: 'success'
+                    });
+                    loginUser({
+                        name: result.data.name,
+                        email: result.data.email,
+                        photo: result.data.photo,
+                        role: result.data.role
+                    });
+                    localStorage.setItem('token', result.access_token);
+                    history.replace(from);
+                })
+                .catch(err => {
+                    swal({
+                        title: err.message,
+                        text: JSON.stringify(err),
+                        icon: 'error'
+                    });
+                    console.log(err);
+                    setOtherErr(err.message);
+                })
+            }
         })
         .catch(err => {
+            swal({
+                title: err.message,
+                text: JSON.stringify(err),
+                icon: 'error'
+            });
             console.log(err);
             setOtherErr(err.message);
         })

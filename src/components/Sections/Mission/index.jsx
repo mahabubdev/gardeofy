@@ -2,9 +2,14 @@ import { MissionSectionWrap, MissionSectionContainer, MissionInfo, MissionImgBan
 import girlPhoto from '../../../images/gardener_mission.jpg';
 import { FcGlobe, FcIdea } from 'react-icons/fc';
 import { IoPlayOutline } from 'react-icons/io5';
+import ModalVideo from 'react-modal-video';
+import { useState } from "react";
 
 
 function MissionSection() {
+
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <MissionSectionWrap id='mission'>
             <MissionSectionContainer>
@@ -44,11 +49,16 @@ function MissionSection() {
 
                 <MissionImgBanner>
                     <img src={girlPhoto} alt="mission-girl" />
-                    <span>
+                    <span onClick={() => setIsOpen(true)}>
                         <IoPlayOutline />
                     </span>
                 </MissionImgBanner>
             </MissionSectionContainer>
+
+            <ModalVideo channel='youtube' 
+                autoplay isOpen={isOpen} videoId="YF2iQAGA5Bg" 
+                onClose={() => setIsOpen(false)} />
+
         </MissionSectionWrap>
     )
 }

@@ -2,11 +2,8 @@ import { MobileMenuWrapper } from "./Styled";
 import { CgClose } from "react-icons/cg";
 import { Link as Lnk } from 'react-scroll';
 import { Link } from 'react-router-dom';
-import { useAuthHook } from "../../context/auth";
 
-const MobileMenu = ({ closer, status }) => {
-
-    const { isAuthenticated } = useAuthHook();
+const MobileMenu = ({ closer, status, isAuthenticated, logoutFunction }) => {
 
     return (
         <MobileMenuWrapper
@@ -33,23 +30,31 @@ const MobileMenu = ({ closer, status }) => {
                     </ul>
 
                     <ul className="btns_menu">
-                        <li>
-                            {/* <Link to='#contact'>get a quote</Link> */}
-                            <Lnk spy={true} to='contact'>get a quote</Lnk>
-                        </li>
+                        
                         {/* <li>
                             <Link to='/login' className="marked">sign in</Link>
                         </li> */}
 
                         {
                             isAuthenticated ? (
-                                <li>
-                                    <span className="marked">logout</span>
-                                </li>
+                                <>
+                                    <li>
+                                        <Link to='/dashboard'>dashboard</Link>
+                                    </li>
+                                    <li>
+                                        <span onClick={logoutFunction}>logout</span>
+                                    </li>
+                                </>
                             ) : (
-                                <li>
-                                    <Link to='/login' className="marked">sign in</Link>
-                                </li>
+                                <>
+                                    <li>
+                                        {/* <Link to='#contact'>get a quote</Link> */}
+                                        <Lnk spy={true} to='contact'>get a quote</Lnk>
+                                    </li>
+                                    <li>
+                                        <Link to='/login' className="marked">sign in</Link>
+                                    </li>
+                                </>
                             )
                         }
                     </ul>

@@ -155,6 +155,15 @@ export const MenuArea = styled.div`
             width: 60px;
             height: 60px;
             border: .2em solid ${bgColors.themeRGBA(.25)};
+            cursor: pointer;
+        }
+    }
+
+    @media only screen and (max-width: 1299.9px) {
+        .btns_menu, .menus {
+            a, span {
+                padding: .7em 1.4em;
+            }
         }
     }
 
@@ -259,7 +268,7 @@ export const MobileMenuWrapper = styled.div`
             bottom: 0;
             left: 0;
 
-            a {
+            a, span {
                 display: block;
                 background-color: ${bgColors.theme};
                 color: ${textColors.light};
@@ -267,6 +276,7 @@ export const MobileMenuWrapper = styled.div`
                 padding: 1em 0;
                 text-align: center;
                 text-transform: uppercase;
+                font-size: 1em;
             }
 
             
