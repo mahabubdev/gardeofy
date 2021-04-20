@@ -63,7 +63,7 @@ const DashboardIndex = memo(() => {
                     <>
                         <UserInfo>
                             {
-                                data.user && data.user.photo === 'user.png' ? (
+                                data && user.photo === 'user.png' ? (
                                     <img src={defaultUserImg} alt='user_img' />
                                 ) : (
                                     <img src={data.photo} alt='user_img' />

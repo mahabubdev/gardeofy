@@ -29,9 +29,11 @@ import PeopleIcon from '@material-ui/icons/People';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import HomeIcon from '@material-ui/icons/Home';
 // context
 import { useAuthHook } from '../context/auth';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 
@@ -64,7 +66,7 @@ const MainListItemsAdmin = (
         </ListItem>
     </Link>
 
-    <Link to='/dashboard/service'>
+    <Link to='/dashboard/services'>
       <ListItem button>
           <ListItemIcon>
               <ViewModuleIcon />
@@ -72,7 +74,7 @@ const MainListItemsAdmin = (
             <ListItemText primary="Manage Services" />
         </ListItem>
       </Link>
-      <Link to='/dashboard/service/add'>
+      <Link to='/dashboard/services/add'>
         <ListItem button>
             <ListItemIcon>
                 <AddBoxIcon />
@@ -114,6 +116,22 @@ const MainListItemsUser = (
       </Link>
   </List>
 );
+
+
+
+const CommonFooterMenu = () => {
+
+  let history = useHistory();
+
+  return(<List>
+      <ListItem button onClick={
+        () => history.replace('/')
+      }>
+        <ListItemIcon><HomeIcon /></ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+</List>)
+}
 
 
 
@@ -231,7 +249,7 @@ function DashboardUI ({ children }) {
     // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     // states
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     // handle open
     const handleDrawerOpen = () => setOpen(true);
     const handleDrawerClose = () => setOpen(false);
@@ -257,7 +275,7 @@ function DashboardUI ({ children }) {
           </Typography>
 
 
-          <Button variant="contained" color="secondary" onClick={logoutUser}>logout</Button>
+          <Button variant="contained" color="secondary" onClick={logoutUser}><ExitToAppIcon /> logout</Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -276,8 +294,8 @@ function DashboardUI ({ children }) {
         {
           user && user.role === 'customer' ? (MainListItemsUser) : (MainListItemsAdmin)
         }
-        {/* <Divider /> */}
-        {/* <List>{secondaryListItems}</List> */}
+        <Divider />
+        <List><CommonFooterMenu /></List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

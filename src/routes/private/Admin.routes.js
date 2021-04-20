@@ -7,7 +7,7 @@ export function AdminRoleRoutes ({ location, ...rest }) {
     return (
         <>
             {
-                user.isAuthenticated && (user.role === 'admin' || user.role === 'super_admin')
+                user.isAuthenticated && (user.role !== 'customer')
                     ? (<Route {...rest} />) : (
                     <Redirect
                         to={{
