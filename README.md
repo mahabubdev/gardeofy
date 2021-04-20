@@ -29,5 +29,4 @@ yarn test
 ```
 yarn build
 ```
-## [Go to backend part =>](https://github.com/mahabubdev)
-## [Frontend Live preview (click here)](https://mahabubdev.github.io)
+## [Frontend Live preview (click here)](https://gardeofy.web.app/)
