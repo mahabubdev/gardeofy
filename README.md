@@ -1,5 +1,10 @@
 # Gardeofy
 ``Frontend part of gardeofy project (Assignment 11)``
+
+## [Backend Code Repo link](https://github.com/mahabubdev/gardeofy-apiserver-assignment)
+## [Frontend Live preview (click here)](https://gardeofy.web.app/)
+
+
 ## Features
 1. Dynamic admin and consumer dashboard
 2. Dynamic Frontend site controlled by the admins
@@ -29,5 +34,4 @@ yarn test
 ```
 yarn build
 ```
-## [Backend Code Repo link](https://github.com/mahabubdev/gardeofy-apiserver-assignment)
-## [Frontend Live preview (click here)](https://gardeofy.web.app/)
+
