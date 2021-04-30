@@ -10,9 +10,8 @@
 2. Dynamic Frontend site controlled by the admins
 3. Responsive and have been styled with `Material-UI` (dashboard) and `Styled-Components` (normal site)
 4. Modern `React`, React-Hooks and Optimized SPA website
-5. SEO optimized with `react-helmet`
-6. Separated Layout components for dashboard and normal site
-7. Secured secret variables with `.env` file
+5. Separated Layout components for dashboard and normal site
+6. Secured secret variables with `.env` file
 
 ## Installation
 ``Install dependencies``
